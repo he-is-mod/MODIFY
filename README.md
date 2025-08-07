@@ -35,5 +35,5 @@ Modify is a modern music streaming platform designed for both listeners and musi
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/he-is-mod/MODIFY.git>
    cd modify
