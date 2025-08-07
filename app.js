@@ -83,6 +83,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // ====== Routes ======
+app.get("/", (req, res) => {
+  res.render("layout"); // your EJS or template file for landing page
+});
 app.use("/upload", uploadRouter);
 app.use("/test", testRoutes);
 app.use("/", homeRoutes);
