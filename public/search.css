@@ -1,0 +1,148 @@
+body.search-page {
+    background: linear-gradient(135deg, #0a0f2c, #11294d, #1a3d5f, #203a60);
+    background-size: 400% 400%;
+    animation: gradientFlow 10s ease infinite;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 4rem;
+    /* to avoid footer overlap */
+}
+
+@keyframes gradientFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.glass-search {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.glass-input {
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.glass-input::placeholder {
+    color: #ddd;
+}
+
+.track-glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.track-glass-card img {
+    width: clamp(50px, 15vw, 60px);
+    height: clamp(50px, 15vw, 60px);
+    object-fit: cover;
+}
+
+.track-title {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.artist-name {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+}
+
+.footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 20, 0.6);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem 0;
+    z-index: 999;
+}
+
+.footer-icons i {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: #fff;
+    text-shadow: 0 0 5px #0ff;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-icons i:hover {
+    color: #00f0ff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .glass-search {
+        padding: 0.4rem;
+    }
+
+    .glass-input {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .track-glass-card {
+        padding: 0.5rem;
+    }
+
+    .track-glass-card img {
+        width: clamp(40px, 12vw, 50px);
+        height: clamp(40px, 12vw, 50px);
+    }
+
+    .btn {
+        padding: 0.3rem 0.8rem;
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .footer-nav {
+        padding: 0.4rem 0;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .glass-search {
+        max-width: 500px;
+        padding: 0.6rem;
+    }
+
+    .track-glass-card {
+        padding: 0.75rem;
+    }
+
+    .track-glass-card img {
+        width: clamp(50px, 12vw, 55px);
+        height: clamp(50px, 12vw, 55px);
+    }
+}
+
+@media (min-width: 769px) {
+    .glass-search {
+        max-width: 600px;
+        padding: 0.75rem;
+    }
+
+    .track-glass-card {
+        padding: 1rem;
+    }
+}

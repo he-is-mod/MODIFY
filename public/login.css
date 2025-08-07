@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0f2c, #11294d, #1a3d5f, #203a60);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
+    color: white;
+}
+
+.app-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+
+}
+
+.text-glow {
+    color: #a8cbf5;
+    text-decoration: none;
+}
+
+.text-glow:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #3339f9;
+}
+
+.btn-neon {
+    background-color: rgba(38, 0, 255, 0.9);
+    border: none;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 15px #4f52ff;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background-color: #030e3f;
+    box-shadow: 0 0 20px #5121ee;
+}
+
+.form-control {
+    background: transparent;
+    color: white;
+    border: 1px solid #4f58ff;
+}
+
+.form-control:focus {
+    border-color: #3125d6;
+    box-shadow: 0 0 10px #caa8f5;
+    background: transparent;
+}
+
+label {
+    color: #eee;
+}
+
+.text-purple {
+    color: #4536e9;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ff4bf09b6.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+<body class="home-page">
+    <div class="container py-4 px-2 px-md-4">
+      <h2 class="mb-4 app-title text-center">
+          <i class="fa-solid fa-music me-2 text-purple"></i> Modify
+      </h2>
+
+      <h4 class="text-white">Trending Now</h4>
+      <div class="row g-3">
+          <% tracks.forEach(track => { %>
+              <div class="col-12 col-sm-6 col-md-4">
+                  <div class="card track-card">
+                    <img src="<%= track.cover %>" class="card-img-top img-fluid" alt="cover" />
+
+                    <div class="card-body text-white">
+                        <h5 class="card-title d-flex align-items-center">
+                            <span class="track-title text-truncate"><%= track.title %></span>
+                            <button 
+                                class="btn play-btn ms-2" 
+                                onclick="setCurrentTrackAndPlay('<%= track.id %>')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </h5>
+                        <p class="card-text text-truncate">
+                            <%= track.artist %>
+                        </p>
+                        <div class="progress-bar-track"></div>
+                    </div>
+                  </div>
+              </div>
+          <% }); %>
+      </div>
+    </div>
+
+    <footer class="footer-nav">
+        <div class="footer-icons d-flex justify-content-around align-items-center">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <a href="musician/profile"><i class="fas fa-user"></i></a>
+            <a href="nowPlaying/nowPlaying"><i class="fas fa-music"></i></a>
+            <a href="search"><i class="fas fa-search"></i></a>
+        </div>
+    </footer>
+
+    <script>
+      async function setCurrentTrackAndPlay(trackId) {
+        try {
+          const res = await fetch('/nowPlaying/setCurrentTrack', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify({ id: trackId })
+          });
+
+          if (res.redirected) {
+            window.location.href = res.url;
+          } else {
+            window.location.href = '/nowPlaying';
+          }
+        } catch (error) {
+          console.error("Error setting current track:", error);
+        }
+      }
+    </script>
+
+    <script>
+      // Update viewport height on resize for mobile browsers
+      function setVH() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      window.addEventListener('resize', setVH);
+      window.addEventListener('load', setVH);
+    </script>
+</body>
+</html>

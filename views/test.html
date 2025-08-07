@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Profile Tracks Test</title>
+<style>
+  body {
+    background: #11294d;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    padding: 20px;
+  }
+  .track-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 300px;
+  }
+  .track-title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  button {
+    background: none;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: rgba(0,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+
+<h2>My Tracks</h2>
+
+<div class="track-card">
+  <div class="track-title">Track 1</div>
+  <audio id="audio-1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <div class="controls">
+    <button onclick="rewind('1')">&#9664;&#9664;</button>
+    <button id="play-btn-1" onclick="togglePlay('1')">&#9658;</button>
+    <button onclick="skip('1')">&#9654;&#9654;</button>
+  </div>
+</div>
+
+<div class="track-card">
+  <div class="track-title">Track 2</div>
+  <audio id="audio-2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+  <div class="controls">
+    <button onclick="rewind('2')">&#9664;&#9664;</button>
+    <button id="play-btn-2" onclick="togglePlay('2')">&#9658;</button>
+    <button onclick="skip('2')">&#9654;&#9654;</button>
+  </div>
+</div>
+
+<div class="track-card">
+  <div class="track-title">Track 3</div>
+  <audio id="audio-3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+  <div class="controls">
+    <button onclick="rewind('3')">&#9664;&#9664;</button>
+    <button id="play-btn-3" onclick="togglePlay('3')">&#9658;</button>
+    <button onclick="skip('3')">&#9654;&#9654;</button>
+  </div>
+</div>
+
+<script>
+  let currentAudio = null;
+  let currentButton = null;
+
+  function togglePlay(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    const btn = document.getElementById(`play-btn-${id}`);
+
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      if (currentButton) {
+        currentButton.textContent = '▶'; // play icon
+      }
+    }
+
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸'; // pause icon
+      currentAudio = audio;
+      currentButton = btn;
+    } else {
+      audio.pause();
+      btn.textContent = '▶'; // play icon
+      currentAudio = null;
+      currentButton = null;
+    }
+  }
+
+  function rewind(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    audio.currentTime = 0;
+  }
+
+  function skip(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    audio.currentTime = audio.duration;
+  }
+</script>
+
+</body>
+</html>

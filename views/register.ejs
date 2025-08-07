@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Modify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap"
+    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/2ff4bf09b6.js" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="/register.css">
+</head>
+
+<body>
+    <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="form-box glass-effect p-4">
+            <h1 class="text-center app-title mb-4"><i class="fa-solid fa-music me-2"></i> Modify</h1>
+
+            <form action="/register" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label text-white">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label text-white">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirm" class="form-label text-white">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm" name="confirm" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="role" class="form-label text-white">Register as</label>
+                    <select name="role" class="form-select" id="role" required>
+                        <option value="listener" class="text-dark">Listener</option>
+                        <option value="musician" class="text-dark">Musician</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-neon w-100">Register</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="/login" class="text-light small">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

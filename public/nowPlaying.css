@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0f2c, #11294d, #1a3d5f, #203a60);
+    background-size: 400% 400%;
+    animation: gradientFlow 10s ease infinite;
+    color: white;
+}
+
+@keyframes gradientFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 400px;
+    padding: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.album-art {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(180, 123, 255, 0.7);
+}
+
+.track-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: #fff;
+    margin-top: 0.5rem;
+}
+
+.artist-name {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    color: #d6d6ff;
+    margin-bottom: 0.5rem;
+}
+
+.control-btn {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    width: clamp(40px, 12vw, 48px);
+    height: clamp(40px, 12vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #b47bff, #49a1ff);
+    border-radius: 4px;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+}
+
+.footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 20, 0.6);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem 0;
+    z-index: 999;
+}
+
+.footer-icons i {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: #fff;
+    text-shadow: 0 0 5px #0ff;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-icons i:hover {
+    color: #00f0ff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 576px) {
+    .glass-card {
+        padding: 1rem;
+        margin-bottom: 4rem;
+    }
+
+    .album-art {
+        max-width: 200px;
+    }
+
+    .control-btn {
+        width: clamp(36px, 10vw, 40px);
+        height: clamp(36px, 10vw, 40px);
+    }
+
+    .footer-nav {
+        padding: 0.4rem 0;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .glass-card {
+        max-width: 500px;
+        padding: 1.5rem;
+    }
+
+    .album-art {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 769px) {
+    .glass-card {
+        max-width: 450px;
+        padding: 2rem;
+    }
+
+    .album-art {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0f2c, #11294d, #1a3d5f, #203a60);
+    animation: gradientMove 15s ease infinite;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.app-title {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-shadow: 0 0 12px white;
+}
+
+.glass-effect {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    margin: 1rem;
+}
+
+input.form-control,
+select.form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+input.form-control:focus,
+select.form-select:focus {
+    box-shadow: 0 0 10px #caa8f5;
+    border-color: #caa8f5;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-neon {
+    background-color: rgba(38, 0, 255, 0.9);
+    border: none;
+    color: white;
+    text-shadow: 0 0 6px #fff;
+    box-shadow: 0 0 15px #8a4fff;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background-color: #4346fe5c;
+    box-shadow: 0 0 20px #3720e6;
+}
+
+/* ✅ Enhanced Mobile Responsiveness */
+@media (max-width: 576px) {
+
+.glass-effect {
+        max-width: 95%;
+      max-height: 100%;
+        padding: 1.5rem 1rem;
+    }
+
+    .form-box {
+        padding: 1.5rem 1rem;
+        margin: 0 1rem;
+    }
+
+    .app-title {
+        font-size: 1.6rem;
+    }
+
+    input.form-control,
+    select.form-select {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+
+    .btn-neon {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
+}
