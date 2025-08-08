@@ -13,6 +13,8 @@ nowPlaying.get("/nowPlaying", ensureAuthenticated, async (req, res) => {
     return res.render("nowPlaying", { track: null, user: req.user });
   }
 
+  
+
   try {
     const [rows] = await pool.query(
       `SELECT tracks.*, users.name AS artist_name 
@@ -70,5 +72,7 @@ nowPlaying.get("/nowPlaying/prev", ensureAuthenticated, (req, res) => {
   }
   res.redirect("/nowPlaying/nowPlaying");
 });
+
+
 
 module.exports = nowPlaying;

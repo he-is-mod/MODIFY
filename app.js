@@ -88,7 +88,7 @@ app.get("/", (req, res) => {
 });
 app.use("/upload", uploadRouter);
 app.use("/test", testRoutes);
-app.use("/", homeRoutes);
+app.use("/home", homeRoutes);
 app.use("/musician", musicianRouter);
 app.use("/", authRouter);
 app.use("/nowPlaying", nowPlaying);
@@ -116,6 +116,12 @@ app.use((req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   next();
 });
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
+
 
 // ====== Server ======
 app.listen(PORT, () => {

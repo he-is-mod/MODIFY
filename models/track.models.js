@@ -20,7 +20,10 @@ const getRandomTracks = async (req, res) => {
     const [rows] = await pool.query(
       "SELECT * FROM tracks ORDER BY RAND() LIMIT 6"
     );
-    res.render("home", { tracks: rows });
+    res.render("home", {
+      tracks: rows,
+      user: req.user || null, // Pass logged-in user info (or null if not logged in)
+    });
   } catch (err) {
     console.error("Error fetching tracks:", err);
     res.status(500).send("Server error");

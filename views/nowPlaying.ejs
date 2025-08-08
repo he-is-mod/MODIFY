@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="/nowPlaying.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -17,7 +18,8 @@
       <% if (track) { %>
         <img src="<%= track.cover || '/default-cover.jpg' %>" alt="Album Art" class="album-art mb-3">
         <h2 class="track-title"><%= track.title %></h2>
-        <p class="artist-name"><%= user.name %></p>
+        <p class="artist-name"><%= track.artist_name || "Unknown Artist" %></p>
+
 
         <!-- Audio element hidden, controlled with JS -->
         <audio id="audioPlayer">
@@ -57,16 +59,26 @@
     </div>
   </div>
 
-  <footer class="footer-nav">
-    <div class="footer-icons d-flex justify-content-around align-items-center">
-      <a href="/"><i class="fas fa-home"></i></a>
-      <a href="/musician/profile"><i class="fas fa-user"></i></a>
-      <a href=""><i class="fas fa-music"></i></a>
-      <a href="/search"><i class="fas fa-search"></i></a>
-    </div>
-  </footer>
+ <footer class="footer-nav">
+  <div class="footer-icons d-flex justify-content-around align-items-center">
+    <a href="/home"><i class="fas fa-home"></i></a>
+    <% if (user) { %>
+      <% if (user.role === 'musician') { %>
+        <a href="/musician/profile"><i class="fas fa-user"></i></a>
+      <% } else if (user.role === 'listener') { %>
+        <a href="/listener/profile"><i class="fas fa-user"></i></a>
+      <% } else { %>
+        <a href="/"><i class="fas fa-user"></i></a>
+      <% } %>
+    <% } else { %>
+      <a href="/login"><i class="fas fa-user"></i></a>
+    <% } %>
+    <a href="/nowPlaying/nowPlaying"><i class="fas fa-music"></i></a>
+    <a href="/search"><i class="fas fa-search"></i></a>
+  </div>
+</footer>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ 
 
   <script>
     const audio = document.getElementById("audioPlayer");

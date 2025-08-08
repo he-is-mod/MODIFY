@@ -1,4 +1,7 @@
-body {
+/* Reset & Base */
+body,
+html {
+    height: 100%;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0a0f2c, #11294d, #1a3d5f, #203a60);
@@ -19,25 +22,46 @@ body {
     }
 }
 
+/* Flex container to center vertically/horizontally */
+.d-flex.justify-content-center.align-items-center.min-vh-100 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Glass effect card */
 .glass-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    margin-bottom: 5rem;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    width: 90%;
-    max-width: 400px;
-    padding: 1.5rem;
-    margin-bottom: 5rem;
 }
 
+/* Album art styling */
 .album-art {
     width: 100%;
     max-width: 300px;
+    max-height: 300px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(180, 123, 255, 0.7);
+    object-fit: contain;
+    margin-bottom: 1rem;
 }
 
+/* Track title and artist */
 .track-title {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(1.2rem, 4vw, 1.5rem);
@@ -51,6 +75,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Control buttons */
 .control-btn {
     font-size: clamp(0.9rem, 3vw, 1.2rem);
     width: clamp(40px, 12vw, 48px);
@@ -58,8 +83,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
+/* Progress bar */
 .progress-container {
     width: 100%;
     height: 8px;
@@ -77,10 +104,12 @@ body {
     transition: width 0.1s linear;
 }
 
+/* Time display */
 .time-display {
     font-size: clamp(0.8rem, 2.5vw, 0.9rem);
 }
 
+/* Footer nav */
 .footer-nav {
     position: fixed;
     bottom: 0;
@@ -103,15 +132,18 @@ body {
     color: #00f0ff;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive adjustments */
 @media (max-width: 576px) {
     .glass-card {
+        max-width: 95%;
+        max-height: 80vh;
         padding: 1rem;
         margin-bottom: 4rem;
     }
 
     .album-art {
         max-width: 200px;
+        max-height: 200px;
     }
 
     .control-btn {
@@ -126,22 +158,26 @@ body {
 
 @media (min-width: 577px) and (max-width: 768px) {
     .glass-card {
-        max-width: 500px;
+        max-width: 450px;
+        max-height: 85vh;
         padding: 1.5rem;
     }
 
     .album-art {
         max-width: 250px;
+        max-height: 250px;
     }
 }
 
 @media (min-width: 769px) {
     .glass-card {
-        max-width: 450px;
+        max-width: 400px;
+        max-height: 90vh;
         padding: 2rem;
     }
 
     .album-art {
         max-width: 300px;
+        max-height: 300px;
     }
 }

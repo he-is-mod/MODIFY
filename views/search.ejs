@@ -56,10 +56,20 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer-nav">
+ <footer class="footer-nav">
   <div class="footer-icons d-flex justify-content-around align-items-center">
-    <a href="/"><i class="fas fa-home"></i></a>
-    <a href="/musician/profile"><i class="fas fa-user"></i></a>
+    <a href="/home"><i class="fas fa-home"></i></a>
+    <% if (user) { %>
+      <% if (user.role === 'musician') { %>
+        <a href="/musician/profile"><i class="fas fa-user"></i></a>
+      <% } else if (user.role === 'listener') { %>
+        <a href="/listener/profile"><i class="fas fa-user"></i></a>
+      <% } else { %>
+        <a href="/"><i class="fas fa-user"></i></a>
+      <% } %>
+    <% } else { %>
+      <a href="/login"><i class="fas fa-user"></i></a>
+    <% } %>
     <a href="/nowPlaying/nowPlaying"><i class="fas fa-music"></i></a>
     <a href="/search"><i class="fas fa-search"></i></a>
   </div>
