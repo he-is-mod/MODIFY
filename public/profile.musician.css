@@ -174,21 +174,21 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .profile-pic {
-        width: clamp(120px, 35vw, 180px);
-        height: clamp(120px, 35vw, 180px);
+        width: clamp(500px, 100vw, 250px);
+        height: clamp(200px, 100vw, 400px);
     }
 
     .profile-section h1 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
+        font-size: clamp(3rem, 6vw, 2rem);
     }
 
     .add-btn {
         padding: clamp(8px, 2.5vw, 10px);
-        font-size: clamp(0.9rem, 3vw, 1rem);
+        font-size: clamp(1.5rem, 3vw, 1rem);
     }
 
     .glass-section {
-        padding: clamp(10px, 3vw, 15px);
+        padding: clamp(30px, 7vw, 30px);
     }
 
     .modal-dialog {
@@ -201,12 +201,12 @@ html, body {
     }
 
     .track-cover {
-        width: clamp(80px, 20vw, 100px);
-        height: clamp(80px, 20vw, 100px);
+        width: clamp(300px, 40vw, 200px);
+        height: clamp(200px, 40vw, 200px);
     }
 
     .container-fluid {
-        padding-left: clamp(10px, 3vw, 15px);
+        padding-left: clamp(100px, 3vw, 15px);
         padding-right: clamp(10px, 3vw, 15px);
     }
 }
